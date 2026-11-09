@@ -1,98 +1,144 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Je t'aime</title>
     <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
             background-color: #101827;
             color: white;
-            font-family: Arial;
+            font-family: Arial, sans-serif;
             text-align: center;
-            padding: 50px;
+            padding: 20px;
+            /* Pour que la page respire bien sur mobile */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            justify-content: center;
+        }
+
+        h1 {
+            color: #00c8ff;
+            font-size: clamp(24px, 5vw, 35px);
+            margin-bottom: 20px;
         }
 
         p {
             color: #00c8ff;
-            font-size: 18px;
+            font-size: clamp(15px, 3.5vw, 18px);
+            line-height: 1.6;
+            max-width: 600px;
+            margin-bottom: 20px;
+            background-color: #1f293d;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #00c8ff;
+        }
+
+        button {
+            background-color: #00c8ff;
+            color: #101827;
+            font-weight: bold;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        button:hover {
+            background-color: white;
         }
     </style>
 </head>
 <body>
 
-    <h1>Sur cette page je t'aime, </h1>
-    <p>Je t'aime de tout mon cœur.<br>
-       T'es tout pour moi, <br>
-       L'amour de ma vie,<br>
-       Une ilimination de ma vie,<br>
-       je serait toujours la pour toi,<br>
-       Quoi qu'il arrive,<br>
-       Je t'aimerait pour toujours,<br>
-       T'es mon soleil,<br>
-       Ma lune,<br>
-       Tu fait mon bonheur a toi tout seul,<br>
-       T'es la meilleur femme que je pouvais avoir,<br>
-       J'ai tellement de chance que ce soit moi qui t'es eu,<br>
-       Toi qui est si exeptionnelle,<br>
-       Si parfaite,<br>
-       Si belle,<br>
-       Tu na aucun default,<br>
-       Et je le pense sincerement,<br>
-       Je te remercie du fond du coeur de m'aimer,<br>
-       Autant que tu le fait,<br>
-       Malgres tout se que je fait,<br>
-       T'arrive encore a m'aimer si fort et si pur,<br>
-       Je plein tout le monde de pas avoir une femme aussi merveilleuse que toi,<br>
-       T'es a moi rien qu'a moi,<br>
-       Comment je pourrais vivre sans toi,<br> 
-       Tu es a ma raison de vivre,<br>
-       Tu a reussis a me faire arreter de fumer,<br>
-       Moins boire,<br>
-       Tu ma fait decouvrir que le veritable amour existait,<br>
-       Et il existeras qu'avec toi !<br>
-       J'aimerais que toi dans ma vie,<br>
-       Je penser meme pas que c'etait possible d'autant aimer,<br>
-       Tu ma fait decouvrir ce que l'amour pouvais me faire,<br>
-       Je pense sans cesse a toi,<br>
-       H24,<br>
-       H32,<br>
-       H154663463544533333333333333,<br>
-       Je t'aime tres fort,<br>
-       Ne meurt jamais,<br>
-       J'arriverait plus a vivre,<br>
-       C'est toi + moi ou rien,<br>
-       Mon amour pour toi est immense,<br>
-       T'es tout pour moi,<br>
-       Tu es la plus belle femme au monde,<br>
-       Tu a le plus beau sourire,<br>
-       Le plus beaux regarde,<br>
-       Les plus beaux yeux,<br>
-       Les plus beaux chevaux,<br>
-       Ton corps et sublimes,<br>
-       Parfait,<br>
-       Ta les plus belle orailles,<br>
-       Le plus beaux nez,<br>
-       ton profil est magnfique,<br>
-       Et j'en passe beaucoup beaucoup !<br> 
-       Merci beaucoup d autant m'aimer,<br>
-       Sans toi je serait mort,<br>
-       Je te dois ma vie,<br>
-       Je t'aime tres fort et eternellement mon coeur !!!!!!!!!!!!!!<br>
-</p>  
-
-
-     <p>Je repense sans cesse a tout nos moments passer ensemble,<br>
-        que se soit en ville, au divant, ou simplement sur un banc,<br>
-        Peut importe ou c'est toujours incroyable dans que t es la,<br>
-        Nos moment passez chez mon papa, chez ma maman, chez toi, au lac, a la mer,<br>
-        Tout ces moments sont inoubliable simplement car tu es la,<br>
-        Toi la meilleur personne au monde !!!!<br>
-        Nos photos, de simple photos,<br>
-        Rendu magnifique par ta beaute, ton charmes, ton sourire,<br>
-        Et j'en passe tellement,<br>
-        Bref Je t'aime tres fort mon couer !!! Et pour toujours !!!!!!!!!!!!!!<br>
+    <h1>Sur cette page je t'aime</h1>
+    
+    <p>
+        Je t'aime de tout mon cœur.<br>
+        T'es tout pour moi, <br>
+        L'amour de ma vie,<br>
+        Une illumination de ma vie,<br>
+        Je serai toujours là pour toi,<br>
+        Quoi qu'il arrive,<br>
+        Je t'aimerai pour toujours,<br>
+        T'es mon soleil,<br>
+        Ma lune,<br>
+        Tu fais mon bonheur à toi tout seul,<br>
+        T'es la meilleure femme que je pouvais avoir,<br>
+        J'ai tellement de chance que ce soit moi qui t'aie eue,<br>
+        Toi qui es si exceptionnelle,<br>
+        Si parfaite,<br>
+        Si belle,<br>
+        Tu n'as aucun défaut,<br>
+        Et je le pense sincèrement,<br>
+        Je te remercie du fond du cœur de m'aimer,<br>
+        Autant que tu le fais,<br>
+        Malgré tout ce que je fais,<br>
+        Tu arrives encore à m'aimer si fort et si pur,<br>
+        Je plains tout le monde de ne pas avoir une femme aussi merveilleuse que toi,<br>
+        T'es à moi rien qu'à moi,<br>
+        Comment je pourrais vivre sans toi,<br>
+        Tu es ma raison de vivre,<br>
+        Tu as réussi à me faire arrêter de fumer,<br>
+        Moins boire,<br>
+        Tu m'as fait découvrir que le véritable amour existait,<br>
+        Et il existera qu'avec toi !<br>
+        J'aimerais que toi dans ma vie,<br>
+        Je ne pensais même pas que c'était possible d'autant aimer,<br>
+        Tu m'as fait découvrir ce que l'amour pouvait me faire,<br>
+        Je pense sans cesse à toi,<br>
+        H24,<br>
+        H32,<br>
+        H154663463544533333333333333,<br>
+        Je t'aime très fort,<br>
+        Ne meurs jamais,<br>
+        J'arriverais plus à vivre,<br>
+        C'est toi + moi ou rien,<br>
+        Mon amour pour toi est immense,<br>
+        T'es tout pour moi,<br>
+        Tu es la plus belle femme au monde,<br>
+        Tu as le plus beau sourire,<br>
+        Le plus beau regard,<br>
+        Les plus beaux yeux,<br>
+        Les plus beaux cheveux,<br>
+        Ton corps est sublime,<br>
+        Parfait,<br>
+        Tu as les plus belles oreilles,<br>
+        Le plus beau nez,<br>
+        Ton profil est magnifique,<br>
+        Et j'en passe beaucoup beaucoup !<br>
+        Merci beaucoup d'autant m'aimer,<br>
+        Sans toi je serais mort,<br>
+        Je te dois ma vie,<br>
+        Je t'aime très fort et éternellement mon cœur !!!!!!!!!!!!!!
     </p>
+
+    <p>
+        Je repense sans cesse à tous nos moments passés ensemble,<br>
+        que ce soit en ville, au divan, ou simplement sur un banc,<br>
+        Peu importe où, c'est toujours incroyable tant que t'es là,<br>
+        Nos moments passés chez mon papa, chez ma maman, chez toi, au lac, à la mer,<br>
+        Tous ces moments sont inoubliables simplement car tu es là,<br>
+        Toi la meilleure personne au monde !!!!<br>
+        Nos photos, de simples photos,<br>
+        Rendues magnifiques par ta beauté, ton charme, ton sourire,<br>
+        Et j'en passe tellement,<br>
+        Bref Je t'aime très fort mon cœur !!! Et pour toujours !!!!!!!!!!!!!!
+    </p>
+
     <button onclick="window.location.href='index.html'">
         Retour à l'accueil
     </button>

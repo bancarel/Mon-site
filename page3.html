@@ -36,9 +36,16 @@
             margin-bottom: 20px;
         }
 
-        textarea {
+        form {
             width: 100%;
             max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        textarea {
+            width: 100%;
             height: 120px;
             padding: 12px;
             border-radius: 10px;
@@ -56,6 +63,7 @@
             gap: 10px;
             justify-content: center;
             flex-wrap: wrap;
+            width: 100%;
         }
 
         button {
@@ -84,18 +92,6 @@
             background-color: white;
             color: #101827;
         }
-
-        #messageRecu {
-            margin-top: 25px;
-            font-size: 18px;
-            color: #ff69b4;
-            display: none;
-            padding: 15px;
-            border: 1px dashed #ff69b4;
-            border-radius: 10px;
-            max-width: 400px;
-            word-break: break-word;
-        }
     </style>
 </head>
 
@@ -104,27 +100,15 @@
     <h1>Écris-moi quelque chose ❤️</h1>
     <p>Laisse-moi un petit mot ci-dessous :</p>
 
-    <textarea id="monTexte" placeholder="Écris ton message ici..."></textarea>
+    <!-- FORMULAIRE RELIÉ À TON LIEN FORMSPREE -->
+    <form action="https://formspree.io/f/mpppgvke" method="POST">
+        <textarea name="message" placeholder="Écris ton message ici..." required></textarea>
 
-    <div class="boutons">
-        <button onclick="envoyerMessage()">Envoyer</button>
-        <button class="btn-retour" onclick="window.location.href='index.html'">Accueil</button>
-    </div>
-
-    <div id="messageRecu"></div>
-
-    <script>
-        function envoyerMessage() {
-            var texte = document.getElementById("monTexte").value;
-            var affichage = document.getElementById("messageRecu");
-
-            if (texte.trim() !== "") {
-                affichage.innerHTML = "<strong>Ton message :</strong><br>« " + texte + " » ❤️";
-                affichage.style.display = "block";
-                document.getElementById("monTexte").value = "";
-            }
-        }
-    </script>
+        <div class="boutons">
+            <button type="submit">Envoyer</button>
+            <button type="button" class="btn-retour" onclick="window.location.href='index.html'">Accueil</button>
+        </div>
+    </form>
 
 </body>
 </html>

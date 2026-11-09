@@ -36,7 +36,35 @@
 
         p {
             font-size: clamp(16px, 4vw, 20px);
+            margin-bottom: 20px;
+        }
+
+        /* Cadre du compteur de jours */
+        .compteur-box {
+            background-color: #1f293d;
+            border: 2px solid #00c8ff;
+            border-radius: 12px;
+            padding: 15px 25px;
             margin-bottom: 30px;
+            font-size: clamp(16px, 4vw, 20px);
+            color: #00c8ff;
+            line-height: 1.5;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .compteur-box span {
+            font-weight: bold;
+            font-size: clamp(18px, 4.5vw, 22px);
+        }
+
+        /* Style des boutons */
+        .boutons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+            max-width: 300px;
         }
 
         button {
@@ -49,6 +77,7 @@
             cursor: pointer;
             font-size: 18px;
             transition: background-color 0.3s ease;
+            width: 100%;
         }
 
         button:hover {
@@ -63,11 +92,61 @@
 
     <p>Ceci t'est destiné</p>
 
-    <button onclick="window.location.href='page2.html'">
-        Je t'aime
-    </button><br>
-    <button onclick="window.location.href='page3.html'">
-        Écris-moi quelque chose ❤️
-    </button>
+    <!-- Affichage du compteur -->
+    <div class="compteur-box" id="compteur">
+        Chargement du compteur...
+    </div>
+
+    <div class="boutons">
+        <button onclick="window.location.href='page2.html'">
+            Je t'aime
+        </button>
+        <button onclick="window.location.href='page3.html'">
+            Écris-moi quelque chose ❤️
+        </button>
+    </div>
+
+    <script>
+        // Date de votre rencontre : 19 mars 2026 (Mars = 2 en JS)
+        var dateRencontre = new Date(2026, 2, 19); 
+        var aujourdhui = new Date();
+
+        // 1. Nombre total de jours
+        var diffTemps = aujourdhui - dateRencontre;
+        var diffJoursTotal = Math.floor(diffTemps / (1000 * 60 * 60 * 24));
+
+        // 2. Calcul en années, mois et jours
+        var annees = aujourdhui.getFullYear() - dateRencontre.getFullYear();
+        var mois = aujourdhui.getMonth() - dateRencontre.getMonth();
+        var jours = aujourdhui.getDate() - dateRencontre.getDate();
+
+        if (jours < 0) {
+            mois--;
+            var moisPrecedent = new Date(aujourdhui.getFullYear(), aujourdhui.getMonth(), 0);
+            jours += moisPrecedent.getDate();
+        }
+
+        if (mois < 0) {
+            annees--;
+            mois += 12;
+        }
+
+        // Formatage du texte selon la durée
+        var texteDetail = "";
+        if (annees > 0) {
+            texteDetail += annees + (annees > 1 ? " ans " : " an ");
+        }
+        if (mois > 0 || annees > 0) {
+            texteDetail += mois + " mois ";
+        }
+        texteDetail += jours + (jours > 1 ? " jours" : " jour");
+
+        // Affichage final
+        document.getElementById("compteur").innerHTML = 
+            "<span>Ensemble depuis :</span><br>" + 
+            texteDetail + " ❤️<br>" + 
+            "<span style='font-size: 0.85em; opacity: 0.85;'>(soit " + diffJoursTotal + " jours en tout)</span>";
+    </script>
+
 </body>
 </html>

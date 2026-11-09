@@ -18,25 +18,27 @@
             color: white;
             font-family: Arial, sans-serif;
             text-align: center;
-            /* Flexbox pour centrer parfaitement verticalement et horizontalement */
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             padding: 20px;
+            overflow: hidden; /* Empêche les barres de défilement dues aux cœurs */
+            position: relative;
         }
 
         h1 {
             color: #00c8ff;
-            /* Taille fluide : s'adapte à la taille de l'écran */
             font-size: clamp(28px, 6vw, 45px);
             margin-bottom: 15px;
+            z-index: 2; /* Pour que le texte reste bien au-dessus des cœurs */
         }
 
         p {
             font-size: clamp(16px, 4vw, 20px);
             margin-bottom: 20px;
+            z-index: 2;
         }
 
         /* Cadre du compteur de jours */
@@ -51,6 +53,7 @@
             line-height: 1.5;
             max-width: 400px;
             width: 100%;
+            z-index: 2;
         }
 
         .compteur-box span {
@@ -65,6 +68,7 @@
             gap: 15px;
             width: 100%;
             max-width: 300px;
+            z-index: 2;
         }
 
         button {
@@ -82,6 +86,29 @@
 
         button:hover {
             background-color: white;
+        }
+
+        /* Style des cœurs animés */
+        .heart {
+            position: absolute;
+            bottom: -20px;
+            color: #ff69b4;
+            font-size: 20px;
+            user-select: none;
+            z-index: 1;
+            animation: floatUp 4s linear infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) scale(0.8);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-105vh) scale(1.2);
+                opacity: 0;
+            }
         }
     </style>
 </head>
@@ -146,6 +173,25 @@
             "<span>Ensemble depuis :</span><br>" + 
             texteDetail + " ❤️<br>" + 
             "<span style='font-size: 0.85em; opacity: 0.85;'>(soit " + diffJoursTotal + " jours en tout)</span>";
+
+        // Fonction pour créer des cœurs qui montent en arrière-plan
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.innerHTML = "❤️";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = (Math.random() * 3 + 3) + "s"; // Vitesse aléatoire entre 3 et 6s
+            heart.style.fontSize = (Math.random() * 15 + 15) + "px"; // Taille aléatoire
+            document.body.appendChild(heart);
+
+            // Supprime le cœur une fois qu'il est sorti de l'écran pour ne pas ralentir le téléphone
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+        }
+
+        // Génère un nouveau cœur toutes les 400 millisecondes
+        setInterval(createHeart, 400);
     </script>
 
 </body>

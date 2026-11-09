@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pour toi mon cœur</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #101827;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #00c8ff;
+            font-size: clamp(26px, 6vw, 40px);
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: clamp(16px, 4vw, 18px);
+            margin-bottom: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            max-width: 400px;
+            height: 120px;
+            padding: 12px;
+            border-radius: 10px;
+            border: 2px solid #00c8ff;
+            background-color: #1f293d;
+            color: white;
+            font-size: 16px;
+            resize: none;
+            margin-bottom: 20px;
+            outline: none;
+        }
+
+        .boutons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        button {
+            background-color: #00c8ff;
+            color: #101827;
+            font-weight: bold;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: white;
+        }
+
+        .btn-retour {
+            background-color: transparent;
+            color: white;
+            border: 1px solid white;
+        }
+
+        .btn-retour:hover {
+            background-color: white;
+            color: #101827;
+        }
+
+        #messageRecu {
+            margin-top: 25px;
+            font-size: 18px;
+            color: #ff69b4;
+            display: none;
+            padding: 15px;
+            border: 1px dashed #ff69b4;
+            border-radius: 10px;
+            max-width: 400px;
+            word-break: break-word;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Écris-moi quelque chose ❤️</h1>
+    <p>Laisse-moi un petit mot ci-dessous :</p>
+
+    <textarea id="monTexte" placeholder="Écris ton message ici..."></textarea>
+
+    <div class="boutons">
+        <button onclick="envoyerMessage()">Envoyer</button>
+        <button class="btn-retour" onclick="window.location.href='index.html'">Accueil</button>
+    </div>
+
+    <div id="messageRecu"></div>
+
+    <script>
+        function envoyerMessage() {
+            var texte = document.getElementById("monTexte").value;
+            var affichage = document.getElementById("messageRecu");
+
+            if (texte.trim() !== "") {
+                affichage.innerHTML = "<strong>Ton message :</strong><br>« " + texte + " » ❤️";
+                affichage.style.display = "block";
+                document.getElementById("monTexte").value = "";
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -2,29 +2,53 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <!-- Balise indispensable pour le rendu sur mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon coeur</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
             background-color: #101827;
             color: white;
-            font-family: Arial;
+            font-family: Arial, sans-serif;
             text-align: center;
-            padding: 50px;
+            /* Flexbox pour centrer parfaitement verticalement et horizontalement */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
         }
 
         h1 {
             color: #00c8ff;
-            font-size: 45px;
+            /* Taille fluide : s'adapte à la taille de l'écran */
+            font-size: clamp(28px, 6vw, 45px);
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: clamp(16px, 4vw, 20px);
+            margin-bottom: 30px;
         }
 
         button {
             background-color: #00c8ff;
+            color: #101827;
+            font-weight: bold;
             border: none;
             padding: 15px 30px;
             border-radius: 10px;
             cursor: pointer;
             font-size: 18px;
+            transition: background-color 0.3s ease;
         }
 
         button:hover {
@@ -37,7 +61,7 @@
 
     <h1>Bienvenue mon cœur !</h1>
 
-    <p>Ceci t'es destinée</p>
+    <p>Ceci t'est destiné</p>
 
     <button onclick="window.location.href='page2.html'">
         Je t'aime

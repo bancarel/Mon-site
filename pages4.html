@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos petits mots</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #101827;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #00c8ff;
+            font-size: clamp(24px, 5vw, 35px);
+            margin-bottom: 20px;
+        }
+
+        /* La boîte qui affiche le message magique */
+        .boite-mot {
+            background-color: #1f293d;
+            border: 2px solid #00c8ff;
+            border-radius: 15px;
+            padding: 25px;
+            max-width: 450px;
+            width: 100%;
+            margin-bottom: 30px;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(16px, 4vw, 20px);
+            color: #ff69b4;
+            line-height: 1.5;
+            box-shadow: 0 4px 15px rgba(0, 200, 255, 0.1);
+        }
+
+        .boutons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        button {
+            background-color: #00c8ff;
+            color: #101827;
+            font-weight: bold;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: white;
+        }
+
+        .btn-retour {
+            background-color: transparent;
+            color: white;
+            border: 1px solid white;
+        }
+
+        .btn-retour:hover {
+            background-color: white;
+            color: #101827;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Pourquoi je t'aime ❤️</h1>
+
+    <!-- Zone du message magique -->
+    <div class="boite-mot" id="texteMagique">
+         Clique sur le bouton en dessous pour découvrir un petit mot...
+    </div>
+
+    <div class="boutons">
+        <button onclick="changerMot()">Un autre mot magique ✨</button>
+        <button class="btn-retour" onclick="window.location.href='index.html'">Retour à l'accueil</button>
+    </div>
+
+    <script>
+        // 📝 TU PEUX AJOUTER OU MODIFIER TES PHRASES ICI :
+        const motsDoux = [
+            "Ton sourir sublime",
+            "T'es yeux.",
+            "Ton rire.",
+            "Ton regard.",
+            "La facons dont tu me regardes.",
+            "T'es messages.",
+            "La facons dont tu rends mes journées merveilleuses.",
+            "Ton corps magnifique.",
+            "T'es toujours a l'ecoute.",
+            "T'a douce peaux.",
+            "Ton odeur.",
+            "T'es messages du matin.",
+            "T'es calins.",
+            "T'es bisous.",
+            "T'es je t'aime ",
+            "T'es massages.",
+            "T'es blagues.",
+            "Ta facons de m'aimer.",
+            "T'ES PARFAITE.",
+            "T'es crie (humour mon coeur(meme si j'aime j'assume))",
+            "Tu me redonne le sourire quand je vais pas bien.",
+            "Je t'aime.",
+            "T'es cheveux.",
+            "T'es pupilles.",
+            "T'on nez.",
+            "Ton profil.",
+            "ToN visages.",
+            "Ton front.",
+            "SURTOUT TON COEUR.",
+            "Tout et beaux chez toi.",
+            "Nos souvenir merveilleux.",
+            "Hate de te marier.",
+            "Hate de te faire des enfants.",
+            "Hate de viellir avec toi.",
+            "Ta beaute.",
+            "Ton intelligence.",
+            "Ton humour.",
+            "Ta determination.",
+            "T'es prise d'information.",
+            "T'es fou rire.",
+            "T'es bonnes nuits.",
+            "T'es bon courages.",
+            "T'es coucous.",
+            "T'es bisous le matin.",
+            "T'es bon app.",
+            "T'es MA VIEEEEEEEEEEEEEE (contuinue ca me fait trop plaisir)",
+            "T'es je t'aime le soir.",
+            "T'es OUI.",
+            "T'es je t'aime le matin.",
+            "T'es imitations.",
+            "Tu me fait tout le temps rigoler.",
+            "Ma tete ne pense qua toi.",
+            "Je veux te rendre heureuse.",
+            "Je veux te rendre fiere.",
+            "Je veux que tu sois contente de moi.",
+            "Je veux que tu sois heureuse avec moi.",
+            "Je veux que t'aime mon corps.",
+            "Faut choquer la belle famille avec mon corps(boutade).",
+            "T'es boutade.",
+            "T'es mots d'amour.",
+        ];
+
+        function changerMot() {
+            // Choisit un message au hasard dans la liste
+            const indexAleatoire = Math.floor(Math.random() * motsDoux.length);
+            document.getElementById("texteMagique").innerHTML = "« " + motsDoux[indexAleatoire] + " » ❤️";
+        }
+    </script>
+
+</body>
+</html>
